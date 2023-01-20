@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
  * @author Rafael
  */
 public class TelaUsuario extends javax.swing.JInternalFrame {
-
+// teste
     //Usando a variavel conexao do dal.
     //Prepared Statement e ResultSet sao frameworks do pacote java.sql.
     //conexao da classe ModuloConexao.
