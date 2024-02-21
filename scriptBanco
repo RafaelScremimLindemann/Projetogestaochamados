@@ -1,0 +1,50 @@
+create database dbinfox;
+use dbinfox;
+create table tbusuarios(
+	iduser int primary key,
+    	usuario varchar(50) not null,
+    	fone varchar(15),
+    	login varchar(15) not null unique,
+    	senha varchar(15) not null,
+    	data_nascimento date
+    );
+
+insert into tbusuarios(iduser, usuario, fone, login, senha )
+values(1, 'Rafael Scremim', '48991113913', 'rafaeelsc', '12345678' );
+
+insert into tbusuarios(iduser, usuario, fone, login, senha )
+values(2, 'Administrador', '48991113913', 'admin', '12345678' );
+
+insert into tbusuarios(iduser, usuario, fone, login, senha )
+values(3, 'Gianni Ramos', '48996494811', 'gianni', '123' );
+
+--------------------------------------------------------------
+
+create table tbclientes(
+	idcli int primary key auto_increment,
+    	nomecli varchar(50) not null,
+    	endcli varchar(50),
+    	fonecli varchar(50) not null,
+    	emailcli varchar(50)
+);
+
+insert into tbclientes(nomecli, endcli, fonecli, emailcli)
+values('Gianni Ramos', 'Bonifacio', '48996494811', 'gianniramos@outlook.com');
+
+--------------------------------------------------------------
+
+create table tbos(
+	os int primary key auto_increment,
+    	data_os timestamp default current_timestamp,
+    	equipamento varchar(150) not null,
+   	defeito varchar(150) not null,
+    	servico varchar(150),
+    	tecnico varchar(150),
+    	valor decimal(10,2),
+    	idcli int not null,
+    	foreign key(idcli) 
+    	references tbclientes(idcli)
+);
+
+insert into tbos(equipamento, defeito, servico,tecnico,valor, idcli)
+values('notebook', 'não liga', 'troca da fonte', 'Rafa', 20.00, 1);
